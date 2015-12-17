@@ -1,0 +1,34 @@
+# Make nano the default editor
+export EDITOR="vi:w"
+
+# export MANPAGER="cat"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+
+# Make some commands not show up in history
+export HISTIGNORE="&:[ ]*:pwd;exit:date:* --help"
+
+# JsTestDriver preffix
+export JSTESTDRIVER_HOME=~/bin/java
+
+# Python path
+export PYTHONPATH=/usr/local/lib/python2.6/site-packages/
+
+# This changes the blue for directories to cyan:
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
+# npm fix, hopefully
+# https://gist.github.com/DanHerbert/9520689
+export PATH="$HOME/.node/bin:$PATH"
+
+# Java home for AWS
+# http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/set-up-ec2-cli-linux.html#tools-introduction
+export JAVA_HOME=$(/usr/libexec/java_home)
+export EC2_HOME="/usr/local/ec2/ec2-api-tools-1.7.5.1"
+export PATH="$PATH:$EC2_HOME/bin"
+
+# Garmin Connect IQ
+export PATH=$PATH:/usr/local/connectiq-sdk/bin
