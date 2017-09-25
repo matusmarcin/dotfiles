@@ -1,5 +1,7 @@
 # dotfiles
 
+![My sexy terminal](sexy.png)
+
 Nothing exciting. Mostly compiled.
 
 Here I try to credit the sources / inspiration since I haven't forked this properly:

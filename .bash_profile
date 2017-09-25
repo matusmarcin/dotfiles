@@ -1,6 +1,6 @@
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{bash_prompt,exports,cloudrc,aliases}; do	
+for file in ~/.{prompt,exports,cloudrc,aliases}; do	
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -33,3 +33,7 @@ complete -W "NSGlobalDomain" defaults
 
 # Initialize rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"

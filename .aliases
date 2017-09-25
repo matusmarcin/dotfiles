@@ -25,11 +25,35 @@ alias fireworks="open -a '/Applications/Adobe Fireworks CS6/Adobe Fireworks CS6.
 alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'"
 # alias gpr="~/code/gpr $1"
 alias vi:w="subl -w"
+alias sourcem="echo Refreshing your bash profile... ; source ~/.bash_profile"
 
 function myz() {
  cd $1 && subl .;
 }
+function myza() {
+ cd $1 && atom .;
+ say you are so cool;
+}
+function myzaf() {
+ cd $1 && atom .;
+ say you are so cool;
+ /usr/bin/osascript -e 'tell application "Atom"' -e "activate" -e 'tell application "System Events"' -e 'keystroke "f" using {control down, command down}' -e "end tell" -e "end tell";
+}
+function myzc() {
+ code $1;
+}
+function myzco() {
+ cd $1 && code .;
+}
+function myzcc() {
+ code .;
+}
 alias z=myz
+alias za=myza
+alias zaf=myzaf
+alias co=myzco
+alias c=myzc
+alias c.=myzcc
 
 function myzs() {
  say it will be my pleasure opening $1 for you, sir;
@@ -53,6 +77,7 @@ alias sites="cd ~/Sites"
 alias sbox="cd ~/Sites/sandbox"
 alias selse="cd ~/Sites/else"
 alias gh="open -a google\ chrome 'http://github.com/matusmarcin'"
+alias meteo="curl -4 http://wttr.in/Kosice"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -85,8 +110,14 @@ fi
 
 # GIT STUFF
 
+# oneline log https://davidwalsh.name/git-commits
+alias gitlinelog="git log --oneline | nl -v0 | sed 's/^ \+/&HEAD~/' | more"
+
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
+
+# Git align my fork with upstream
+alias gitalign="git fetch upstream && git checkout master && git rebase upstream/master && git push --no-verify"
 
 # git root
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
@@ -122,7 +153,7 @@ alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 type -t md5sum > /dev/null || alias md5sum="md5"
 
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+#alias c="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
@@ -159,3 +190,21 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # alias stfu="osascript -e 'set volume output muted true'"
 # alias pumpitup="osascript -e 'set volume 10'"
 # alias hax="growlnotify -a 'Activity Monitor' 'System error' -m 'WTF R U DOIN'"
+
+# Fun items
+
+alias easy="say That was easy!"
+
+## The Economist
+#  FE Blogs
+
+alias fe-unit="TZ=\"/usr/share/zoneinfo/Europe/London\" npm run test:unit"
+alias fe-dev-stage="API_GATEWAY_ENDPOINT=http://bla-bla.economist.com npm run serve"
+alias fe-dev-stage-watch="API_GATEWAY_ENDPOINT=http://bla-bla.economist.com npm run watch"
+alias fe-dev="API_GATEWAY_ENDPOINT=http://www.economist.com npm run serve"
+alias fe-dev-watch="API_GATEWAY_ENDPOINT=http://www.economist.com npm run watch"
+alias fe-dev-local="API_GATEWAY_ENDPOINT=http://localhost:3001 npm run serve"
+alias fe-tests-local-prod="TEST_BASE_URL=https://www.economist.com npm run test:acceptance:local"
+alias fe-tests-local-stage="TEST_BASE_URL=https://blah.economist.com npm run test:acceptance:local"
+alias fe-tests-local-local="npm run test:acceptance:local"
+alias fe-graphql="API_GATEWAY_ENDPOINT=http://bla-bla.economist.com/ npm run serve"
