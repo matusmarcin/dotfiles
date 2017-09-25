@@ -27,6 +27,7 @@ alias photoshop="open -a '/Applications/Adobe Photoshop CS6/Adobe Photoshop.app'
 alias vi:w="subl -w"
 alias sourcem="echo Refreshing your bash profile... ; source ~/.bash_profile"
 
+# opening stuff in sublime
 function myz() {
  cd $1 && subl .;
 }
@@ -60,6 +61,19 @@ function myzs() {
  cd $1 && subl .;
 }
 alias zs=myzs
+
+# same for atom
+function myza() {
+ cd $1 && atom .;
+ say you are so cool;
+}
+function myzaf() {
+ cd $1 && atom .;
+ say you are so cool;
+ /usr/bin/osascript -e 'tell application "Atom"' -e "activate" -e 'tell application "System Events"' -e 'keystroke "f" using {control down, command down}' -e "end tell" -e "end tell";
+}
+alias za=myza
+alias zaf=myzaf
 
 # Apache related stuff
 alias apstart='sudo apachectl start'
@@ -121,6 +135,9 @@ alias gitalign="git fetch upstream && git checkout master && git rebase upstream
 
 # git root
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+
+# Git align my fork with upstream
+alias gitalign="git fetch upstream && git checkout master && git rebase upstream/master && git push --no-verify"
 
 # IP addresses
 alias ippublic="dig +short myip.opendns.com @resolver1.opendns.com"
