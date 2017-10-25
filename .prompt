@@ -59,6 +59,9 @@ function vpnstatus() {
 	if [ $? -ne 1 ]; then echo -e "${LIME_YELLOW}${LIGHTGREYBG}\xe2\x98\x85 ${RESET} "; else echo -e "${GREY}\xe2\x98\x85 ${RESET} " ; fi
 }
 
-ZAP="⚡️"
+# This is honestly a bit strange to me, because I am getting this in the console: ⚡️  
+# just from this little guy: ⚡
+# It works 👍
+ZAP="⚡"
 
 PS1="\n\[$YELLOW\]⚡️\[$RESET\]  \[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w\$(git_info)\[$YELLOW\]\n$ZAP  \[$RESET\]"
