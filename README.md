@@ -1,6 +1,6 @@
 # dotfiles
 
-![My sexy terminal](sexy.png)
+![My sexy terminal](exciting.png)
 
 Nothing exciting. Mostly compiled.
 
