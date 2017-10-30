@@ -136,9 +136,6 @@ alias gitalign="git fetch upstream && git checkout master && git rebase upstream
 # git root
 alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
 
-# Git align my fork with upstream
-alias gitalign="git fetch upstream && git checkout master && git rebase upstream/master && git push --no-verify"
-
 # IP addresses
 alias ippublic="dig +short myip.opendns.com @resolver1.opendns.com"
 alias iplocal="ipconfig getifaddr en1"
